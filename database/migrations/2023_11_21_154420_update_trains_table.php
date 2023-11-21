@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('trains', function (Blueprint $table) {
             $table->string('departure_date', 10)->after('arrival_time');
+            $table->string('arrival_date', 10)->after('departure_date');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('trains', function (Blueprint $table) {
             $table->dropColumn('departure_date');
+            $table->dropColumn('arrival_date');
         });
     }
 };
