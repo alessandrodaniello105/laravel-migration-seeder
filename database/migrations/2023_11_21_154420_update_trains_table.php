@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->string('departure_date', 10);
+            $table->string('departure_date', 10)->after('arrival_time');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->dropColumn('departure_date')->after('arrival_time');
+            $table->dropColumn('departure_date');
         });
     }
 };
