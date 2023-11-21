@@ -29,14 +29,18 @@
             <tbody>
 
                 @foreach ($trains as $train)
-                <tr>
-                    <td>{{$train->departure_station}}</td>
-                    <td>{{$train->departure_time}}</td>
-                    <td>{{$train->arrival_station}}</td>
-                    <td>{{$train->arrival_time}}</td>
-                    <td>{{$train->departure_date}}</td>
-                    {{-- <td>Azioni</td> --}}
-                </tr>
+                    @if ( $train->departure_date === date('d/m/Y'))
+
+                        <tr>
+                            <td>{{$train->departure_station}}</td>
+                            <td>{{$train->departure_time}}</td>
+                            <td>{{$train->arrival_station}}</td>
+                            <td>{{$train->arrival_time}}</td>
+                            <td>{{$train->departure_date}}</td>
+                            {{-- <td>Azioni</td> --}}
+                        </tr>
+
+                    @endif
                 @endforeach
 
             </tbody>
